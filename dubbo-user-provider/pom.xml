@@ -18,5 +18,22 @@
             <artifactId>dubbo-api</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.alibaba/dubbo -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>dubbo</artifactId>
+            <version>2.6.2</version>
+        </dependency>
+        <!-- curator-framework -->
+        <!-- 注册中心使用的是zookeeper，引入操作zookeeper的客户端 -->
+        <!-- 由于我们使用zookeeper作为注册中心，所以需要操作zookeeper
+                   dubbo 2.6以前的版本引入zkclient操作zookeeper
+                   dubbo 2.6及以后的版本引入curator操作zookeeper
+        -->
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-framework</artifactId>
+            <version>2.12.0</version>
+        </dependency>
     </dependencies>
 </project>
