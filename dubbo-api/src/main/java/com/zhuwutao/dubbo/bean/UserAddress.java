@@ -1,9 +1,11 @@
 package com.zhuwutao.dubbo.bean;
 
+import java.io.Serializable;
+
 /**
  * Created by zhuwutao on 2019-06-05
  */
-public class UserAddress {
+public class UserAddress implements Serializable {
     private Integer id;
     private String userAddress; //用户地址
     private String userId; //用户id
