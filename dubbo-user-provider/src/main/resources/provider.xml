@@ -16,7 +16,7 @@
     <dubbo:registry protocol="zookeeper" address="127.0.0.1:2181"></dubbo:registry>
 
     <!-- 指定通信地址 端口+协议 -->
-    <dubbo:protocol name="dubbo" port="20880"></dubbo:protocol>
+    <dubbo:protocol name="dubbo" port="20883"></dubbo:protocol>
 
     <!-- 暴露服务 -->
     <dubbo:service interface="com.zhuwutao.dubbo.service.UserService"

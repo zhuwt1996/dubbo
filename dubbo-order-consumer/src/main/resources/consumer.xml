@@ -26,8 +26,10 @@
     <!-- timeout：超时属性，默认1秒 -->
     <!-- 方法级优先，接口级次之，全局配置再次之。
          如果级别一样，则消费方优先，提供方次之 -->
+    <!-- retries: 重试次数，不包含第一次调用 -->
+    <!-- 幂等（设置重试次数）【查询、删除、修改】、非幂等（不能设置重试次数）【新增】 -->
     <dubbo:reference interface="com.zhuwutao.dubbo.service.UserService"
-                     id="userService" timeout="5000">
+                     id="userService" timeout="5000" retries="3">
         <dubbo:method name="getUserAddressList"></dubbo:method>
     </dubbo:reference>
 
