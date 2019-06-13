@@ -18,10 +18,16 @@
 
     <!-- 指定注册中心的地址 -->
     <!--<dubbo:registry address="zookeeper://127.0.0.1:2181"></dubbo:registry>-->
-    <dubbo:registry protocol="zookeeper" address="127.0.0.1:2181"></dubbo:registry>
+    <!-- check属性：启动时是否检查有可用的服务提供者 -->
+    <dubbo:registry protocol="zookeeper" address="127.0.0.1:2181" ></dubbo:registry>
 
     <!-- 指定引用的服务提供者 -->
-    <dubbo:reference interface="com.zhuwutao.dubbo.service.UserService" id="userService"></dubbo:reference>
+    <!-- check属性：启动时是否检查有可用的服务提供者 -->
+    <dubbo:reference interface="com.zhuwutao.dubbo.service.UserService"
+                     id="userService" ></dubbo:reference>
+
+    <!-- 所有reference的公共配置 -->
+    <dubbo:consumer check="false"></dubbo:consumer>
 
     <!-- dubbo monitor -->
     <dubbo:monitor protocol="registry"></dubbo:monitor>
