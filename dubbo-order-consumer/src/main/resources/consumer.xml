@@ -30,7 +30,7 @@
     <!-- 幂等（设置重试次数）【查询、删除、修改】、非幂等（不能设置重试次数）【新增】 -->
     <!-- version 版本 实现灰度发布-->
     <dubbo:reference interface="com.zhuwutao.dubbo.service.UserService"
-                     id="userService" timeout="5000" retries="3" version="*">
+                     id="userService" timeout="5000" retries="3" version="1.0.0">
         <dubbo:method name="getUserAddressList"></dubbo:method>
     </dubbo:reference>
 

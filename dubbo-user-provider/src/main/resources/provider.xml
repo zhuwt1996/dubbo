@@ -20,7 +20,7 @@
 
     <!-- 暴露服务 -->
     <dubbo:service interface="com.zhuwutao.dubbo.service.UserService"
-                   ref="UserServiceImpl" timeout="1000" version="1.0.0">
+                   ref="UserServiceImpl" timeout="1000" version="1.0.0" stub="com.zhuwutao.dubbo.stub.UserServiceStub">
         <dubbo:method name="getUserAddressList"></dubbo:method>
     </dubbo:service>
 
