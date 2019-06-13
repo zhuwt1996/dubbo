@@ -23,8 +23,13 @@
 
     <!-- 指定引用的服务提供者 -->
     <!-- check属性：启动时是否检查有可用的服务提供者 -->
+    <!-- timeout：超时属性，默认1秒 -->
+    <!-- 方法级优先，接口级次之，全局配置再次之。
+         如果级别一样，则消费方优先，提供方次之 -->
     <dubbo:reference interface="com.zhuwutao.dubbo.service.UserService"
-                     id="userService" ></dubbo:reference>
+                     id="userService" timeout="5000">
+        <dubbo:method name="getUserAddressList"></dubbo:method>
+    </dubbo:reference>
 
     <!-- 所有reference的公共配置 -->
     <dubbo:consumer check="false"></dubbo:consumer>

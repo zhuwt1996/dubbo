@@ -19,7 +19,10 @@
     <dubbo:protocol name="dubbo" port="20880"></dubbo:protocol>
 
     <!-- 暴露服务 -->
-    <dubbo:service interface="com.zhuwutao.dubbo.service.UserService" ref="UserServiceImpl"></dubbo:service>
+    <dubbo:service interface="com.zhuwutao.dubbo.service.UserService"
+                   ref="UserServiceImpl" timeout="1000">
+        <dubbo:method name="getUserAddressList" timeout="1000"></dubbo:method>
+    </dubbo:service>
 
     <!-- 具体实现类 -->
     <bean id="UserServiceImpl" class="com.zhuwutao.dubbo.service.impl.UserServiceImpl"></bean>
