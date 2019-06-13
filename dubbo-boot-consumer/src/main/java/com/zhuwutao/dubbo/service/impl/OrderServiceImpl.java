@@ -1,10 +1,9 @@
 package com.zhuwutao.dubbo.service.impl;
 
-import com.alibaba.dubbo.config.annotation.Reference;
 import com.zhuwutao.dubbo.bean.UserAddress;
 import com.zhuwutao.dubbo.service.OrderService;
 import com.zhuwutao.dubbo.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

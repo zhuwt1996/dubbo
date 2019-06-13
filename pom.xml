@@ -14,7 +14,6 @@
         <module>dubbo-order-consumer</module>
         <module>dubbo-boot-provider</module>
         <module>dubbo-boot-consumer</module>
-        <module>dubbo2.7-boot</module>
     </modules>
 
 

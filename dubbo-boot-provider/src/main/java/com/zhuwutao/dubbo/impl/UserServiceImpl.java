@@ -1,8 +1,8 @@
 package com.zhuwutao.dubbo.impl;
 
-import com.alibaba.dubbo.config.annotation.Service;
 import com.zhuwutao.dubbo.bean.UserAddress;
 import com.zhuwutao.dubbo.service.UserService;
+import org.apache.dubbo.config.annotation.Service;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
