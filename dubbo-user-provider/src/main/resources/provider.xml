@@ -23,4 +23,7 @@
 
     <!-- 具体实现类 -->
     <bean id="UserServiceImpl" class="com.zhuwutao.dubbo.service.impl.UserServiceImpl"></bean>
+
+    <!-- dubbo monitor -->
+    <dubbo:monitor protocol="registry"></dubbo:monitor>
 </beans>
