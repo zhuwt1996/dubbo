@@ -33,7 +33,7 @@ public class MyDubboConfiguration {
     public ProtocolConfig protocolConfig(){
         ProtocolConfig protocolConfig = new ProtocolConfig();
         protocolConfig.setName("dubbo");
-        protocolConfig.setPort(20080);
+        protocolConfig.setPort(20083);
         return protocolConfig;
     }
 
@@ -48,7 +48,7 @@ public class MyDubboConfiguration {
         ServiceConfig<UserService> serviceConfig = new ServiceConfig();
         serviceConfig.setInterface(UserService.class);
         serviceConfig.setRef(userService);
-        serviceConfig.setVersion("3.0.0");
+        serviceConfig.setVersion("1.0.0");
 
         MethodConfig methodConfig = new MethodConfig();
         methodConfig.setName("getUserAddressList");

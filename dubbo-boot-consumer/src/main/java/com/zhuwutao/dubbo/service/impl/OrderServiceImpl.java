@@ -14,7 +14,8 @@ import java.util.List;
 @Service
 public class OrderServiceImpl implements OrderService {
 
-    @Reference   //使用dubbo提供的reference注解用于发现服务
+    //url属性：dubbo直连
+    @Reference(loadbalance = "roundrobin") //使用dubbo提供的reference注解用于发现服务
     UserService userService;
 
     public List<UserAddress> initOrder(String userId) {
