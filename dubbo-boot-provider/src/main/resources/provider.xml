@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd
+		http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!-- dubbo服务提供者配置 -->
+
+    <!-- 指定当前服务/应用名，同个服务名称相同 -->
+    <dubbo:application name="dubbo-boot-provider" ></dubbo:application>
+
+    <!-- 指定注册中心的地址 -->
+    <!--<dubbo:registry address="zookeeper://127.0.0.1:2181"></dubbo:registry>-->
+    <dubbo:registry protocol="zookeeper" address="127.0.0.1:2181"></dubbo:registry>
+
+    <!-- 指定通信地址 端口+协议 -->
+    <dubbo:protocol name="dubbo" port="20883"></dubbo:protocol>
+
+    <!-- 暴露服务 -->
+    <dubbo:service interface="com.zhuwutao.dubbo.service.UserService"
+                   ref="UserServiceImpl" timeout="1000" version="1.0.0" stub="com.zhuwutao.dubbo.stub.UserServiceStub">
+        <dubbo:method name="getUserAddressList"></dubbo:method>
+    </dubbo:service>
+
+    <!-- 具体实现类 -->
+    <bean id="UserServiceImpl" class="com.zhuwutao.dubbo.impl.UserServiceImpl"></bean>
+
+
+    <!-- dubbo monitor -->
+    <dubbo:monitor protocol="registry"></dubbo:monitor>
+</beans>
