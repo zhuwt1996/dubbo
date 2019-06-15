@@ -1,5 +1,6 @@
 package com.zhuwutao.dubbo.impl;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.zhuwutao.dubbo.bean.UserAddress;
 import com.zhuwutao.dubbo.service.UserService;
 import org.apache.dubbo.config.annotation.Service;
@@ -14,6 +15,8 @@ import java.util.List;
 @Service //使用dubbo提供的service注解暴露服务
 @Component
 public class UserServiceImpl implements UserService {
+
+    @HystrixCommand
     public List<UserAddress> getUserAddressList(String userId) {
         System.out.println("UserServiceImpl.....3...");
         UserAddress address1 = new UserAddress(1, "北京市昌平区宏福科技园综合楼3层", "1", "李老师", "010-56253825", "Y");
@@ -23,6 +26,9 @@ public class UserServiceImpl implements UserService {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}*/
+		if (Math.random()>0.5){
+		    throw new RuntimeException();
+        }
         return Arrays.asList(address1,address2);
     }
 }

@@ -4,6 +4,7 @@ import org.apache.dubbo.config.spring.context.annotation.DubboComponentScan;
 import org.apache.dubbo.config.spring.context.annotation.EnableDubbo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.context.annotation.ImportResource;
 
 
@@ -23,7 +24,8 @@ import org.springframework.context.annotation.ImportResource;
  *      1、使用注解api的方式，将每个组件手动添加到容器中，并开启扫描(需要@Service)
  */
 @SpringBootApplication
-@EnableDubbo(scanBasePackages = "com.zhuwutao.dubbo")  //开启dubbo
+@EnableDubbo(scanBasePackages = "com.zhuwutao.dubbo")  //开启dubbo\
+@EnableHystrix //开启服务降级
 //@ImportResource(locations = "classpath:provider.xml")
 //@DubboComponentScan(value = "com.zhuwutao.dubbo")
 public class DubboBootProviderApplication {

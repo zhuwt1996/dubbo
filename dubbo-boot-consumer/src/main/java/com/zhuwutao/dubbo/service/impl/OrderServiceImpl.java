@@ -1,11 +1,13 @@
 package com.zhuwutao.dubbo.service.impl;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.zhuwutao.dubbo.bean.UserAddress;
 import com.zhuwutao.dubbo.service.OrderService;
 import com.zhuwutao.dubbo.service.UserService;
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -18,6 +20,7 @@ public class OrderServiceImpl implements OrderService {
     @Reference(loadbalance = "roundrobin") //使用dubbo提供的reference注解用于发现服务
     UserService userService;
 
+    @HystrixCommand(fallbackMethod = "hello")
     public List<UserAddress> initOrder(String userId) {
 
         System.out.println("用户id："+userId);
@@ -27,6 +30,12 @@ public class OrderServiceImpl implements OrderService {
             System.out.println(userAddress.getUserAddress());
         }
         return addressList;
+
+    }
+
+    public List<UserAddress> hello(String userId) {
+
+        return Arrays.asList(new UserAddress(10,"测试地址","测试id","测试收货人","电话号码","Y"));
 
     }
 }
